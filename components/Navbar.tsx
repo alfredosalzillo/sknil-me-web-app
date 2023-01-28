@@ -10,7 +10,7 @@ const Navbar = () => {
         <ul className="flex items-center gap-5">
           <li>
             <Link
-              className="hover:text-cyan-500 transition-colors"
+              className="hover:text-emerald-500 transition-colors"
               href="/sign-in"
             >
               Login
