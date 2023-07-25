@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 
+import classes from './TextField.module.scss';
+
 export type TextFieldProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -16,26 +18,28 @@ const TextField: React.FC<TextFieldProps> = ({
   fullWidth = false,
   error = false,
   helperText,
+  required,
   ...inputProps
 }) => (
   <label
     htmlFor={id}
-    className={clsx('block mb-2 text-xl font-medium text-gray-900', {
-      'w-full': fullWidth,
+    className={clsx(classes.root, {
+      [classes.fullWidth]: fullWidth,
     })}
   >
     {label}
+    {required && '*'}
     <input
       id={id}
       type="text"
       {...inputProps}
-      className={clsx('mt-2 border border-gray-800 text-gray-800 text-md rounded-sm focus:ring-emerald-700 focus:border-emerald-700 block w-full p-2.5', {
-        'border-red-700': error,
+      className={clsx(classes.input, {
+        [classes.error]: error,
       })}
     />
     {helperText && (
-      <div className={clsx('mt-2 text-sm font-light', {
-        'text-red-700': error,
+      <div className={clsx(classes.helperText, {
+        [classes.error]: error,
       })}
       >
         {helperText}

@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 
+import classes from './Button.module.scss';
+
 export type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -10,15 +12,18 @@ export type ButtonProps = React.DetailedHTMLProps<
 const Button: React.FC<ButtonProps> = ({
   fullWidth = false,
   children,
+  disabled,
   ...props
 }) => (
   <button
     type="button"
     {...props}
+    disabled={disabled}
     className={clsx(
-      'p-2 bg-gray-200 border-2 border-gray-800 rounded-sm text-gray-900 font-medium',
+      classes.root,
       {
-        'w-full': fullWidth,
+        [classes.fullWidth]: fullWidth,
+        [classes.disabled]: disabled,
       },
     )}
   >

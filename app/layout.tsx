@@ -1,21 +1,35 @@
-import "./globals.css";
-import React from "react";
+import React from 'react';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
-import Navbar from "@/components/Navbar";
+import SupabaseProvider from '@/plugins/supabase/SupabaseProvider';
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body>
-        {children}
-      </body>
-    </html>
-  );
+import './globals.scss';
+
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
+export const metadata: Metadata = {
+  title: 'sknil me',
+  description: 'All your links in one place',
+  authors: [
+    {
+      name: 'Alfredo Salzillo',
+    },
+  ],
+  viewport: 'width=device-width, initial-scale=1.0',
 };
+
+const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <html lang="en">
+    <body className={inter.className}>
+      <SupabaseProvider>
+        {children}
+      </SupabaseProvider>
+    </body>
+  </html>
+);
 
 export default RootLayout;

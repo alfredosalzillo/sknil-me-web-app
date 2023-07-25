@@ -1,0 +1,17 @@
+@import "@/theme/theme.scss";
+
+html,
+body,
+body > div:first-child,
+div#__next,
+main {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--font-size);
+}

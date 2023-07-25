@@ -1,8 +1,10 @@
 import Link from 'next/link';
 
+import classes from './Logo.module.scss';
+
 const Logo = () => (
   <Link
-    className="text-2xl hover:text-emerald-500 transition-colors cursor-pointer"
+    className={classes.root}
     href="/"
   >
     sknil | me

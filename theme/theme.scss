@@ -1,0 +1,54 @@
+:root {
+  --color-text: #c9d1d9;
+  --color-text-light: #d5dee6;
+
+  --color-background: #0d1117;
+  --color-background-light: #161b22;
+  --color-background-dark: #06060b;
+
+  --color-error: #d30000;
+  --color-success: #00d300;
+  --color-warning: #ffcd2b;
+  --color-info: #339af0;
+
+  --color-link: #58a6ff;
+  --color-link-hover: #1864ab;
+  --color-link-visited: #339af0;
+  --color-link-active: #1864ab;
+  --color-link-focus: #1864ab;
+  --color-link-disabled: #ccc;
+  --color-link-disabled-hover: #ccc;
+  --color-link-disabled-visited: #ccc;
+  --color-link-disabled-active: #ccc;
+  --color-link-disabled-focus: #ccc;
+  --color-link-inverse: #fff;
+  --color-link-inverse-hover: #ccc;
+  --color-link-inverse-visited: #fff;
+  --color-link-inverse-active: #ccc;
+  --color-link-inverse-focus: #ccc;
+  --color-link-inverse-disabled: #ccc;
+  --color-link-inverse-disabled-hover: #ccc;
+  --color-link-inverse-disabled-visited: #ccc;
+  --color-link-inverse-disabled-active: #ccc;
+  --color-link-inverse-disabled-focus: #ccc;
+
+  --color-border: #ccc;
+  --color-border-focus: #339af0;
+  --color-border-disabled: #ccc;
+  --color-border-disabled-light: #ccc;
+  --color-border-disabled-dark: #ccc;
+  --color-border-disabled-focus: #ccc;
+
+  --font-size: 16px;
+
+  $spacing: 4px;
+  --spacing-1: #{$spacing * 1};
+  --spacing-2: #{$spacing * 2};
+  --spacing-3: #{$spacing * 3};
+  --spacing-4: #{$spacing * 4};
+  --spacing-5: #{$spacing * 5};
+  --spacing-6: #{$spacing * 6};
+  --spacing-7: #{$spacing * 7};
+  --spacing-8: #{$spacing * 8};
+  --spacing-9: #{$spacing * 9};
+}

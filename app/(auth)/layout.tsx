@@ -1,10 +1,6 @@
-import React from "react";
+import type React from 'react';
 
-import "./global.css";
+import './global.scss';
 
-const AuthLayout = ({ children }: { children: React.ReactNode }) => {
-  // eslint-disable-next-line react/jsx-no-useless-fragment
-  return <>{children}</>;
-};
-
+const AuthLayout = ({ children }: { children: React.ReactNode }) => children;
 export default AuthLayout;

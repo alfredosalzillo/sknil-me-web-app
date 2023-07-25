@@ -1,7 +1,7 @@
-import { createUniversalClient } from "@/plugins/api/client";
+import { createServerComponentClient } from '@/plugins/supabase/server';
 
 const Home = async () => {
-  const apiClient = createUniversalClient();
+  const apiClient = createServerComponentClient();
   console.log(await apiClient.auth.getSession());
   return (
     <main>
