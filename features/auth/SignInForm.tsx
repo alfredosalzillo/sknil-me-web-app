@@ -13,7 +13,7 @@ import classes from './SignInForm.module.scss';
 import TextField from '@/components/TextField';
 import Button from '@/components/Button';
 import Link from '@/components/Link';
-import useSupabase from '@/plugins/supabase/useSupabase';
+import supabase from '@/plugins/supabase/client';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
@@ -33,7 +33,6 @@ export type SignInFormProps = {
   className?: string
 }
 const SignInForm: React.FC<SignInFormProps> = ({ className }) => {
-  const supabase = useSupabase();
   const router = useRouter();
   const {
     isSubmitting, errors, handleChange, handleSubmit,

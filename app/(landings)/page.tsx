@@ -1,11 +1,10 @@
-import { createServerComponentClient } from '@/plugins/supabase/server';
+import supabase from '@/plugins/supabase/server';
 
 const Home = async () => {
-  const apiClient = createServerComponentClient();
-  console.log(await apiClient.auth.getSession());
+  console.log(await supabase.auth.getSession());
   return (
     <main>
-      <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>
+      <h1>Hello, Next.js!</h1>
     </main>
   );
 };
