@@ -1,0 +1,35 @@
+generates:
+  ./@types/sknilme.ts:
+    schema:
+      - https://updmtfdnpwwxzoofnpvw.supabase.co/graphql/v1:
+          headers:
+            apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwZG10ZmRucHd3eHpvb2ZucHZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzQ5MTI1NjAsImV4cCI6MTk5MDQ4ODU2MH0.8IZhnUF-3ULMCMUQkS8_BP3qj0-JWL9BfXjAHM3USB0
+    documents:
+      - ./**/*.sknilme.gql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
+      - fragment-matcher
+    # temporary config until graphql v2 schema
+    config:
+      avoidOptionals:
+        field: true
+        defaultValue: true
+      maybeValue: 'T'
+
+  ./sknilme.graphql:
+    schema:
+      - https://updmtfdnpwwxzoofnpvw.supabase.co/graphql/v1:
+            headers:
+                apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwZG10ZmRucHd3eHpvb2ZucHZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzQ5MTI1NjAsImV4cCI6MTk5MDQ4ODU2MH0.8IZhnUF-3ULMCMUQkS8_BP3qj0-JWL9BfXjAHM3USB0
+    documents:
+      - ./**/*.sknilme.gql
+    plugins:
+      - schema-ast
+    config:
+      includeIntrospectionTypes: true
+      commentDescriptions: true
+      sort: true
+      includeDirectives: true
+      federation: true

@@ -1,0 +1,10 @@
+query TestQuery {
+    profilesCollection {
+        pageInfo {
+            hasNextPage
+            hasPreviousPage
+            startCursor
+            endCursor
+        }
+    }
+}
