@@ -14,6 +14,7 @@
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended"
   ],
+  "ignorePatterns": ["@types/sknilme.ts"],
   "rules": {
     "no-restricted-imports": ["error",{
       "paths": [
