@@ -1,31 +1,38 @@
-import React from 'react';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Roboto } from 'next/font/google';
+import React from 'react';
+import ThemeRegistry from '@/app/ThemeRegistry';
 
-import './globals.scss';
-
-// If loading a variable font, you don't need to specify the font weight
-const inter = Inter({
+const roboto = Roboto({
+  weight: ['100', '300', '400', '500', '700', '900'],
+  style: ['italic', 'normal'],
   subsets: ['latin'],
-  display: 'swap',
 });
+
 export const metadata: Metadata = {
-  title: 'sknil me',
-  description: 'All your links in one place',
-  authors: [
-    {
-      name: 'Alfredo Salzillo',
-    },
-  ],
-  viewport: 'width=device-width, initial-scale=1.0',
+  title: 'Link in bio tool: Everything you are, in one simple link | Sknil-me',
+  description: 'Link to everything you create, share and sell online. All from the one bio link.',
+  viewport: 'width=device-width, initial-scale=1.0, user-scalable=yes',
 };
 
-const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
+// @ts-ignore
+const RootLayout = ({
+  children,
+}: {
+  children: React.ReactNode
+}) => (
   <html lang="en">
-    <body className={inter.className}>
-      {children}
+    <body
+      className={roboto.className}
+      style={{
+        // @ts-ignore
+        '--roboto-font-family': roboto.style.fontFamily,
+      }}
+    >
+      <ThemeRegistry>
+        {children}
+      </ThemeRegistry>
     </body>
   </html>
 );
-
 export default RootLayout;

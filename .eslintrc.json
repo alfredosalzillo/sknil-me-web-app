@@ -1,147 +1,53 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "jest"
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript"
   ],
   "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
+    "parser": "@typescript-eslint/parser",
+    "project": "./tsconfig.json"
   },
-  "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended"
+  "ignorePatterns": [
+    "types.ts"
   ],
-  "ignorePatterns": ["@types/sknilme.ts"],
-  "rules": {
-    "no-restricted-imports": ["error",{
-      "paths": [
-        {
-          "name": "react-i18next",
-          "message": "Please use next-i18next instead."
-        }
-      ]
-    }],
-    "no-restricted-exports": "off",
-    "react/prop-types": "off",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/consistent-type-imports": "error",
-    "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
-    "@typescript-eslint/no-extra-non-null-assertion": "error",
-    "@typescript-eslint/no-unnecessary-condition": 0,
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_"
-      }
-    ],
-    "@typescript-eslint/member-delimiter-style": [
-      "error",
-      {
-        "multiline": {
-          "delimiter": "none",
-          "requireLast": true
-        },
-        "singleline": {
-          "delimiter": "semi",
-          "requireLast": false
-        }
-      }
-    ],
-    "import/order": [
-      "error",
-      {
-        "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
-        "groups": [
-          // import {useState} from 'React'
-          "external",
-          // import type {ReactNode} from 'React'
-          // "type",
-          "internal",
-          "index",
-          "parent",
-          "sibling",
-          "builtin",
-          "object"
-        ]
-      }
-    ],
-    "no-shadow": "off",
-    "no-multiple-empty-lines": 2,
-    "no-multi-spaces": 2,
-    "no-use-before-define": "off",
-    "react/react-in-jsx-scope": "off",
-    "import/no-unresolved": 0,
-    "react/jsx-props-no-spreading": 0,
-    "import/prefer-default-export": 0,
-    "react/require-default-props": 0,
-    "no-underscore-dangle": 0,
-    "import/extensions": [
-      "error",
-      {
-        "style": "always",
-        "gql": "always",
-        "graphql": "always",
-        "json": "always",
-        "svg": "always",
-        "riv": "always"
-      }
-    ],
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js",
-          ".tsx"
-        ]
-      }
-    ],
-    "react/function-component-definition": [
-      2,
-      {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "function-expression"
-      }
-    ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "**/*.stories.tsx",
-          "**/*.test.tsx",
-          "jest.setup.js",
-          "tests/utils/index.ts"
-        ]
-      }
-    ]
-  },
   "overrides": [
     {
       "files": [
-        "**/*.stories.*"
+        "*.tsx"
       ],
       "rules": {
-        "import/no-anonymous-default-export": "off",
-        "no-console": "off"
+        "react/function-component-definition": "off",
+        "react/require-default-props": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "no-restricted-exports": "off",
+        "react/prop-types": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-no-useless-fragment": "off",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+        "@typescript-eslint/no-extra-non-null-assertion": "error",
+        "@typescript-eslint/no-unnecessary-condition": 0,
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
+        ]
       }
     },
     {
       "files": [
-        "**/*.test.ts",
-        "**/*.test.tsx"
+        "*.js"
       ],
-      "env": {
-        "jest": true,
-        "jest/globals": true
+      "rules": {
+        "@typescript-eslint/naming-convention": "off"
       }
     }
   ]
