@@ -102,6 +102,7 @@ const LinksEngine: React.FC<LinksEngineProps> = ({ links }) => {
                     )}
                   </Draggable>
                 ))}
+                {droppable.placeholder}
               </List>
             )}
           </Droppable>

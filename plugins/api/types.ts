@@ -42,6 +42,58 @@ export interface Database {
         }
         Relationships: []
       }
+      links_stats: {
+        Row: {
+          action: string
+          browser: string | null
+          country_code: string | null
+          created_at: string
+          device: string | null
+          id: string
+          ip: unknown
+          link_id: string
+          os: string | null
+          referrer: string | null
+          updated_at: string
+          user_agent: string | null
+        }
+        Insert: {
+          action: string
+          browser?: string | null
+          country_code?: string | null
+          created_at?: string
+          device?: string | null
+          id?: string
+          ip: unknown
+          link_id: string
+          os?: string | null
+          referrer?: string | null
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Update: {
+          action?: string
+          browser?: string | null
+          country_code?: string | null
+          created_at?: string
+          device?: string | null
+          id?: string
+          ip?: unknown
+          link_id?: string
+          os?: string | null
+          referrer?: string | null
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "links_stats_link_id_fkey"
+            columns: ["link_id"]
+            referencedRelation: "link"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       user: {

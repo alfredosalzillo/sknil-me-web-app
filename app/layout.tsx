@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import ThemeRegistry from '@/components/ThemeRegistry';
+import './global.css';
 
 export const metadata: Metadata = {
   title: 'Link in bio tool: Everything you are, in one simple link | Sknil-me',
