@@ -61,7 +61,7 @@ const DashboardHomePage = async () => {
           )
         }
         {userMetadata.username && (
-          <Grid item xs={6} container spacing={2}>
+          <Grid item xs={12} md={6} container spacing={2}>
             <Grid item xs={12}>
               <Alert severity="info">
                 Your sknil-me is live.
@@ -82,7 +82,7 @@ const DashboardHomePage = async () => {
           </Grid>
         )}
         {userMetadata.username && (
-          <Grid item xs={6}>
+          <Grid item xs={false} md={6}>
             <LinksPreview
               username={userMetadata.username}
               deps={[JSON.stringify(links.data)]}
