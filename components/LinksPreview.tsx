@@ -28,7 +28,13 @@ const LinksPreview: React.FC<LinksPreviewProps> = ({ username, deps = [], ...pro
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
   return (
-    <Container {...props}>
+    <Container
+      {...props}
+      sx={{
+        position: 'sticky',
+        top: (theme) => `calc(${theme.mixins.toolbar.minHeight}px + ${theme.spacing(2)})`,
+      }}
+    >
       <Toolbar component={Paper} elevation={1} sx={{ mb: 4 }}>
         <Grid container spacing={2} justifyContent="flex-end" alignItems="center">
           <Grid item xs>

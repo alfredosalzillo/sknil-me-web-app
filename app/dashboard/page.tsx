@@ -85,10 +85,6 @@ const DashboardHomePage = async () => {
           <Grid item xs={6}>
             <LinksPreview
               username={userMetadata.username}
-              sx={{
-                position: 'sticky',
-                top: 24,
-              }}
               deps={[JSON.stringify(links.data)]}
             />
           </Grid>

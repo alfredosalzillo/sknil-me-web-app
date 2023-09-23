@@ -22,7 +22,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth={false}>
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <IconButton>
