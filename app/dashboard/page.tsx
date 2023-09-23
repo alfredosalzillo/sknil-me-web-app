@@ -6,6 +6,8 @@ import Grid from '@mui/material/Grid';
 import currentUserInfo from '@/plugins/api/current-user-info';
 import getUserMetadata from '@/plugins/api/getUserMetadata';
 import UsernameUpdateForm from '@/components/UsernameUpdateForm';
+import Alert from '@mui/material/Alert';
+import LinksEngine from '@/components/LinksEngine';
 
 export const dynamic = 'force-dynamic';
 
@@ -13,6 +15,14 @@ const DashboardHomePage = async () => {
   const client = getServerClient();
   const user = await currentUserInfo(client);
   const userMetadata = getUserMetadata(user);
+  const links = await client
+    .from('link')
+    .select('*')
+    .eq('user_id', user.id)
+    .limit(100)
+    .order('ordinal', {
+      ascending: true,
+    });
 
   return (
     <Container maxWidth={false}>
@@ -40,6 +50,19 @@ const DashboardHomePage = async () => {
             </Grid>
           )
         }
+        <Grid item xs={12}>
+          <Alert severity="info">
+            Your sknil-me is live.
+          </Alert>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          {links.error && (
+            <Alert severity="error">
+              {links.error.message}
+            </Alert>
+          )}
+          {links.data && <LinksEngine links={links.data} />}
+        </Grid>
       </Grid>
     </Container>
   );

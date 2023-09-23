@@ -9,7 +9,39 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      [_ in never]: never
+      link: {
+        Row: {
+          active: boolean | null
+          created_at: string | null
+          id: string
+          name: string
+          ordinal: number | null
+          updated_at: string | null
+          url: string
+          user_id: string
+        }
+        Insert: {
+          active?: boolean | null
+          created_at?: string | null
+          id?: string
+          name: string
+          ordinal?: number | null
+          updated_at?: string | null
+          url: string
+          user_id?: string
+        }
+        Update: {
+          active?: boolean | null
+          created_at?: string | null
+          id?: string
+          name?: string
+          ordinal?: number | null
+          updated_at?: string | null
+          url?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       user: {
@@ -35,7 +67,12 @@ export interface Database {
       }
     }
     Functions: {
-      [_ in never]: never
+      max_link_ordinal: {
+        Args: {
+          user_id: string
+        }
+        Returns: number
+      }
     }
     Enums: {
       [_ in never]: never

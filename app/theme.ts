@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import createTheme from '@mui/material/styles/createTheme';
 import NextLink from 'next/link';
 import React from 'react';
 
@@ -13,9 +13,6 @@ const Link = React
 const theme = createTheme({
   palette: {
     mode: 'dark',
-  },
-  typography: {
-    fontFamily: 'var(--roboto-font-family)',
   },
   components: {
     MuiLink: {
