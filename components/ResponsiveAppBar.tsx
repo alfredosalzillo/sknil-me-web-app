@@ -5,11 +5,11 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Link from '@mui/material/Link';
 
 const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -25,9 +25,9 @@ const ResponsiveAppBar = () => {
     <AppBar position="sticky">
       <Container maxWidth={false}>
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <IconButton>
-            <HomeIcon />
-          </IconButton>
+          <Typography variant="h6" component={Link} href="/">
+            sknil-me
+          </Typography>
           <Box>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu}>
