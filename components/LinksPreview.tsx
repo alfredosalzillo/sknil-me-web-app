@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { ContainerProps } from '@mui/material/Container';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,13 +10,15 @@ import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import Paper from '@mui/material/Paper';
-import { Typography } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
+import Typography from '@mui/material/Typography';
 
 export type LinksPreviewProps = {
   username: string;
   deps?: unknown[];
 } & ContainerProps;
 const LinksPreview: React.FC<LinksPreviewProps> = ({ username, deps = [], ...props }) => {
+  const [loading, setLoading] = useState(true);
   const iframe = useRef<HTMLIFrameElement>(null);
   const refresh = () => {
     if (iframe.current) {
@@ -69,7 +71,17 @@ const LinksPreview: React.FC<LinksPreviewProps> = ({ username, deps = [], ...pro
             display: 'block',
             position: 'relative',
           }}
+          onLoad={() => setLoading(false)}
         />
+        {loading && (
+          <CircularProgress
+            sx={{
+              position: 'absolute',
+              top: 'calc(50% - 20px)',
+              left: 'calc(50% - 20px)',
+            }}
+          />
+        )}
         <Image
           src={previewDevice}
           alt="preview device"
