@@ -3,6 +3,7 @@ import './global.css';
 import getServerClient from '@/plugins/api/get-server-client';
 import isAuthenticated from '@/plugins/api/is-authenticated';
 import { redirect } from 'next/navigation';
+import Notifications from '@/plugins/notifications/Notifications';
 
 const AuthLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
   const client = getServerClient();
@@ -12,6 +13,7 @@ const AuthLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
   return (
     <div>
       {children}
+      <Notifications />
     </div>
   );
 };

@@ -8,23 +8,27 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 export type PasswordFieldProps = Omit<TextFieldProps, 'type' | 'InputProps'>;
 
-const PasswordField: React.FC<PasswordFieldProps> = (props) => {
+const PasswordField: React.FC<PasswordFieldProps> = ({ InputProps, ...props }) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <TextField
       {...props}
       type={showPassword ? 'text' : 'password'}
       InputProps={{
+        ...InputProps,
         endAdornment: (
-          <InputAdornment position="end">
-            <IconButton
-              aria-label="toggle password visibility"
-              onClick={() => setShowPassword((show) => !show)}
-              edge="end"
-            >
-              {showPassword ? <VisibilityOff /> : <Visibility />}
-            </IconButton>
-          </InputAdornment>
+          <>
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={() => setShowPassword((show) => !show)}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+            {InputProps?.endAdornment}
+          </>
         ),
       }}
     />

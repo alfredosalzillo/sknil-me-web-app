@@ -9,6 +9,7 @@ import client from '@/plugins/api/client';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
 import currentUserInfo from '@/plugins/api/current-user-info';
+import pushNotification from '@/plugins/notifications/pushNotification';
 
 const isUnique = async (value?: string): Promise<boolean> => {
   if (!value) {
@@ -59,10 +60,22 @@ const UsernameUpdateForm: React.FC<UsernameUpdateFormProps> = ({
     enableReinitialize: true,
     validationSchema: usernameUpdateSchema,
     onSubmit: async ({ username }) => {
-      await client.auth.updateUser({
+      const { error } = await client.auth.updateUser({
         data: {
           username,
         }
+      });
+      if (error) {
+        console.error(error);
+        pushNotification({
+          message: error.message,
+          severity: 'error',
+        });
+        return;
+      }
+      pushNotification({
+        message: 'Username updated successfully',
+        severity: 'success',
       });
       router.refresh();
     },
@@ -79,7 +92,7 @@ const UsernameUpdateForm: React.FC<UsernameUpdateFormProps> = ({
         helperText={errors.username}
         InputProps={{
           endAdornment: (
-            <InputAdornment position="start">
+            <InputAdornment position="end">
               <Button type="submit" disabled={isSubmitting || !isDirty}>
                 Save
               </Button>
