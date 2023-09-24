@@ -9,6 +9,7 @@ const GoogleIcon = dynamic(() => import('@mui/icons-material/Google'), { ssr: tr
 const YouTubeIcon = dynamic(() => import('@mui/icons-material/YouTube'), { ssr: true, });
 const PinterestIcon = dynamic(() => import('@mui/icons-material/Pinterest'), { ssr: true, });
 const GitHubIcon = dynamic(() => import('@mui/icons-material/GitHub'), { ssr: true, });
+const TwitterIcon = dynamic(() => import('@mui/icons-material/Twitter'), { ssr: true, });
 
 export type DynamicLinkIconProps = SvgIconProps & {
   url: string;
@@ -26,6 +27,7 @@ const DynamicLinkIcon: React.FC<DynamicLinkIconProps> = ({
   if (url.match(/youtube\.com/)) return <YouTubeIcon {...props} />;
   if (url.match(/pinterest\.com/)) return <PinterestIcon {...props} />;
   if (url.match(/github\.com/)) return <GitHubIcon {...props} />;
+  if (url.match(/twitter\.com/)) return <TwitterIcon {...props} />;
   return fallback;
 };
 
