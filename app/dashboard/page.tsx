@@ -16,7 +16,7 @@ import CopyButton from '@/components/CopyButton';
 const currentDomain = () => {
   const hostname = headers().get('host');
   if (!hostname) return '';
-  if (hostname.startsWith('localhost')) return `https://${hostname}`;
+  if (hostname.startsWith('localhost')) return `http://${hostname}`;
   return `https://${hostname}`;
 };
 
