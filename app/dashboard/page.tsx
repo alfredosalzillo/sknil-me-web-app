@@ -11,6 +11,7 @@ import Link from '@mui/material/Link';
 import LinksEngine from '@/components/LinksEngine';
 import { headers } from 'next/headers';
 import LinksPreview from '@/components/LinksPreview';
+import CopyButton from '@/components/CopyButton';
 
 const currentDomain = () => {
   const hostname = headers().get('host');
@@ -24,7 +25,6 @@ export const dynamic = 'force-dynamic';
 const DashboardHomePage = async () => {
   const client = getServerClient();
   const user = await currentUserInfo(client);
-  const userMetadata = getUserMetadata(user);
   const links = await client
     .from('link')
     .select('*')
@@ -34,13 +34,14 @@ const DashboardHomePage = async () => {
       ascending: true,
     });
 
-  const linksUrl = `${currentDomain()}/l/${userMetadata.username}`;
+  const { username } = getUserMetadata(user);
+  const linksUrl = `${currentDomain()}/l/${username}`;
 
   return (
     <Container maxWidth={false}>
       <Grid container spacing={2}>
         {
-          !userMetadata.username && (
+          !username && (
             <Grid item xs={12} sm={6} md={4}>
               <Typography variant="body1" component="div" gutterBottom>
                 Welcome
@@ -60,15 +61,23 @@ const DashboardHomePage = async () => {
             </Grid>
           )
         }
-        {userMetadata.username && (
+        {username && (
           <Grid item xs={12} md={6} container spacing={2}>
             <Grid item xs={12}>
-              <Alert severity="info">
-                Your sknil-me is live.
+              <Alert
+                severity="info"
+                action={(
+                  <CopyButton value={linksUrl} />
+                )}
+              >
+                <strong>Your sknil-me is live:</strong>
                 {' '}
                 <Link href={linksUrl} target="_blank" rel="noreferrer">
                   {linksUrl}
                 </Link>
+                .
+                <br />
+                Share your sknil-me on your social media profiles.
               </Alert>
             </Grid>
             <Grid item xs={12}>
@@ -81,10 +90,10 @@ const DashboardHomePage = async () => {
             </Grid>
           </Grid>
         )}
-        {userMetadata.username && (
+        {username && (
           <Grid item xs={false} md={6}>
             <LinksPreview
-              username={userMetadata.username}
+              username={username}
               deps={[JSON.stringify(links.data)]}
             />
           </Grid>
