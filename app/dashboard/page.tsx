@@ -91,7 +91,17 @@ const DashboardHomePage = async () => {
           </Grid>
         )}
         {username && (
-          <Grid item xs={false} md={6}>
+          <Grid
+            item
+            xs={false}
+            md={6}
+            sx={{
+              display: {
+                xs: 'none',
+                md: 'block',
+              }
+            }}
+          >
             <LinksPreview
               username={username}
               deps={[JSON.stringify(links.data)]}
