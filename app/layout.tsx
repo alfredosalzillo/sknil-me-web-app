@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Link in bio tool: Everything you are, in one simple link | Sknil-me',
   description: 'Link to everything you create, share and sell online. All from the one bio link.',
   viewport: 'width=device-width, initial-scale=1.0, user-scalable=yes',
+  favicon: '/favicon.ico',
 };
 
 // @ts-ignore
