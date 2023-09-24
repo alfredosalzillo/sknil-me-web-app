@@ -62,7 +62,11 @@ const LinksPage = async (props: LinkPageProps) => {
     <Container
       maxWidth="md"
       sx={{
-        m: 'auto', pt: 4, pb: 2, minHeight: '100%'
+        m: 'auto',
+        pt: 4,
+        pb: 2,
+        minHeight: '100%',
+        display: 'flex',
       }}
     >
       <Grid container direction="column" sx={{ minHeight: '100%', overflow: 'auto' }} spacing={4}>
