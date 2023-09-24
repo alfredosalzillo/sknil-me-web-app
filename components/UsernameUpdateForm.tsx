@@ -8,15 +8,18 @@ import * as Yup from 'yup';
 import client from '@/plugins/api/client';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
+import currentUserInfo from '@/plugins/api/current-user-info';
 
 const isUnique = async (value?: string): Promise<boolean> => {
   if (!value) {
     return false;
   }
+  const user = await currentUserInfo(client);
   const { data, error } = await client
     .from('user')
     .select('username')
     .eq('username', value)
+    .neq('id', user.id)
     .maybeSingle();
   if (error) {
     return false;
@@ -28,15 +31,19 @@ const usernameUpdateSchema = Yup.object().shape({
   username: Yup.string()
     .min(3)
     .max(18)
-    .matches(/^[a-z]+(-[a-z]+)*$/, ({ label }) => `${label} can only contains letters and -`)
-    .test('unique-username', ({ label }) => `the chosen ${label} already exists`, isUnique)
+    .matches(/^[a-z0-9]+(-[a-z0-9]+)*$/, (params) => `${params.path} can only contains letters, numbers and -`)
+    .test('unique-username', (params) => `the chosen ${params.path} is already taken`, isUnique)
     .required(),
 });
 
 export type UsernameUpdateFormProps = {
   fullWidth?: boolean;
+  username?: string;
 };
-const UsernameUpdateForm: React.FC<UsernameUpdateFormProps> = ({ fullWidth }) => {
+const UsernameUpdateForm: React.FC<UsernameUpdateFormProps> = ({
+  fullWidth,
+  username: initialUsername
+}) => {
   const router = useRouter();
   const {
     handleSubmit,
@@ -44,10 +51,12 @@ const UsernameUpdateForm: React.FC<UsernameUpdateFormProps> = ({ fullWidth }) =>
     errors,
     handleChange,
     isSubmitting,
+    isDirty,
   } = useFormik({
     initialValues: {
-      username: '',
+      username: initialUsername ?? '',
     },
+    enableReinitialize: true,
     validationSchema: usernameUpdateSchema,
     onSubmit: async ({ username }) => {
       await client.auth.updateUser({
@@ -71,7 +80,7 @@ const UsernameUpdateForm: React.FC<UsernameUpdateFormProps> = ({ fullWidth }) =>
         InputProps={{
           endAdornment: (
             <InputAdornment position="start">
-              <Button type="submit" disabled={isSubmitting}>
+              <Button type="submit" disabled={isSubmitting || !isDirty}>
                 Save
               </Button>
             </InputAdornment>

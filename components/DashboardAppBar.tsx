@@ -65,6 +65,11 @@ const DashboardAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               <MenuItem>
+                <Typography textAlign="center" component={Link} href="/dashboard/settings">
+                  Settings
+                </Typography>
+              </MenuItem>
+              <MenuItem>
                 <Typography textAlign="center" component={Link} href="/sign-out">
                   Logout
                 </Typography>
