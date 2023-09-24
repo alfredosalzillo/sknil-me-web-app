@@ -112,12 +112,13 @@ const LinkEditForm: React.FC<LinkEditFormProps> = ({
                   onDelete?.();
                   router.refresh();
                 }}
+                size="small"
               >
                 Delete
               </Button>
             </Grid>
             <Grid item>
-              <Button type="submit" disabled={formik.isSubmitting || !formik.dirty}>
+              <Button type="submit" disabled={formik.isSubmitting || !formik.dirty} size="small">
                 Save
               </Button>
             </Grid>
@@ -129,6 +130,7 @@ const LinkEditForm: React.FC<LinkEditFormProps> = ({
             name="active"
             checked={formik.values.active ?? false}
             onChange={formik.handleChange}
+            size="small"
           />
         </Grid>
       </Grid>
