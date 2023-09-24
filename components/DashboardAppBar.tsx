@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import NextLink from 'next/link';
+import Link from '@mui/material/Link';
 
 const DashboardAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -64,7 +65,7 @@ const DashboardAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               <MenuItem>
-                <Typography textAlign="center">
+                <Typography textAlign="center" component={Link} href="/sign-out">
                   Logout
                 </Typography>
               </MenuItem>
