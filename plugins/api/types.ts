@@ -42,7 +42,7 @@ export interface Database {
         }
         Relationships: []
       }
-      links_stats: {
+      links_stats_log: {
         Row: {
           action: string
           browser: string | null
@@ -50,7 +50,7 @@ export interface Database {
           created_at: string
           device: string | null
           id: string
-          ip: unknown
+          ip: unknown | null
           link_id: string
           os: string | null
           referrer: string | null
@@ -64,7 +64,7 @@ export interface Database {
           created_at?: string
           device?: string | null
           id?: string
-          ip: unknown
+          ip?: unknown | null
           link_id: string
           os?: string | null
           referrer?: string | null
@@ -78,7 +78,7 @@ export interface Database {
           created_at?: string
           device?: string | null
           id?: string
-          ip?: unknown
+          ip?: unknown | null
           link_id?: string
           os?: string | null
           referrer?: string | null
@@ -87,7 +87,7 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "links_stats_link_id_fkey"
+            foreignKeyName: "links_stats_log_link_id_fkey"
             columns: ["link_id"]
             referencedRelation: "link"
             referencedColumns: ["id"]

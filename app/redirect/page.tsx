@@ -10,7 +10,7 @@ type RedirectPageProps = {
 };
 const RedirectPage = async (props: RedirectPageProps) => {
   const client = getServerClient();
-  const { error } = await client.from('links_stats').insert({
+  const { error } = await client.from('links_stats_log').insert({
     link_id: props.searchParams.link_id,
     action: 'visit',
     user_agent: headers().get('user-agent'),
