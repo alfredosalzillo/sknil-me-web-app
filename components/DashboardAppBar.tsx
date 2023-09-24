@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -9,9 +11,10 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
+import NextLink from 'next/link';
 
-const ResponsiveAppBar = () => {
+const DashboardAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -25,9 +28,17 @@ const ResponsiveAppBar = () => {
     <AppBar position="sticky">
       <Container maxWidth={false}>
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h6" component={Link} href="/">
-            sknil-me
-          </Typography>
+          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+            <Typography variant="h6">
+              sknil-me
+            </Typography>
+            <Button variant="text" component={NextLink} href="/dashboard">
+              links
+            </Button>
+            <Button variant="text" component={NextLink} href="/dashboard/analytics">
+              analytics
+            </Button>
+          </Box>
           <Box>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu}>
@@ -54,11 +65,6 @@ const ResponsiveAppBar = () => {
             >
               <MenuItem>
                 <Typography textAlign="center">
-                  Profile
-                </Typography>
-              </MenuItem>
-              <MenuItem>
-                <Typography textAlign="center">
                   Logout
                 </Typography>
               </MenuItem>
@@ -69,4 +75,4 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+export default DashboardAppBar;
