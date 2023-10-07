@@ -2,13 +2,16 @@
 
 import urlMetadata from 'url-metadata';
 import currentUserInfo from '@/plugins/api/current-user-info';
-import getServerClient from './get-server-client';
+import getServerClient from '@/plugins/api/get-server-client';
 
 const urlTitleMetadata = async (url: string) => {
   const defaultTitle = new URL(url).hostname;
   try {
     const { title } = await urlMetadata(url);
-    return title ?? defaultTitle;
+    if (typeof title !== 'string') {
+      return defaultTitle;
+    }
+    return title;
   } catch (e) {
     console.error(`impossible to fetch metadata for ${url}`, e);
   }

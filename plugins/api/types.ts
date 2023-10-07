@@ -125,6 +125,21 @@ export interface Database {
         }
         Returns: number
       }
+      update_links_order: {
+        Args: {
+          payload: Json
+        }
+        Returns: {
+          active: boolean | null
+          created_at: string | null
+          id: string
+          name: string
+          ordinal: number | null
+          updated_at: string | null
+          url: string
+          user_id: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never

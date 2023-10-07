@@ -1,6 +1,6 @@
 'use server';
 
-import getServerClient from './get-server-client';
+import getServerClient from '../../plugins/api/get-server-client';
 
 const deleteLink = async (id: string) => {
   const client = getServerClient();

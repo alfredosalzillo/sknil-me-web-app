@@ -1,6 +1,6 @@
 'use server';
 
-import getServerClient from './get-server-client';
+import getServerClient from '../../plugins/api/get-server-client';
 
 type UpdateLinkValues = Partial<{
   url: string,

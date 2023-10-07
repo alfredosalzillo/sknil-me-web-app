@@ -9,10 +9,10 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
 import pushNotification from '@/plugins/notifications/pushNotification';
-import updateLink from '@/plugins/api/updateLink';
-import deleteLink from '@/plugins/api/deleteLink';
 import InputAdornment from '@mui/material/InputAdornment';
 import DynamicLinkIcon from '@/components/DynamicLinkIcon';
+import deleteLink from './deleteLink';
+import updateLink from './updateLink';
 
 const validator = Yup.object({
   name: Yup.string().required(),
@@ -20,7 +20,7 @@ const validator = Yup.object({
   active: Yup.boolean().default(false),
 });
 
-type LinkEditFormProps = {
+export type LinkEditFormProps = {
   link: {
     id: string;
     name: string;

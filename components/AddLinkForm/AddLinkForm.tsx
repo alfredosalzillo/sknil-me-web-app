@@ -3,12 +3,12 @@
 import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
-import addLink from '@/plugins/api/addLink';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
 import React from 'react';
 import pushNotification from '@/plugins/notifications/pushNotification';
+import addLink from './addLink';
 
 const addLinkValidator = Yup.object({
   url: Yup.string().url().required(),

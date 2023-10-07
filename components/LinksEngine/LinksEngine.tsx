@@ -6,12 +6,12 @@ import AddLinkForm from '@/components/AddLinkForm';
 import LinkEditForm from '@/components/LinkEditForm';
 import type { DropResult } from '@hello-pangea/dnd';
 import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
-import client from '@/plugins/api/client';
 import { useRouter } from 'next/navigation';
 import DragHandleIcon from '@mui/icons-material/DragHandle';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import updateLinksOrder from './updateLinksOrder';
 
 const reorder = <T, >(list: T[], startIndex: number, endIndex: number) => {
   const result = Array.from(list);
@@ -49,12 +49,10 @@ const LinksEngine: React.FC<LinksEngineProps> = ({ links }) => {
       result.destination.index,
     );
     setData(items);
-    await client
-      .from('link')
-      .upsert(items.map((item, index) => ({
-        ...item,
-        ordinal: index,
-      })));
+    await updateLinksOrder(items.map((item, index) => ({
+      id: item.id,
+      ordinal: index,
+    })));
     router.refresh();
   };
   return (
