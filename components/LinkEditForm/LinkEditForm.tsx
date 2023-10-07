@@ -76,6 +76,7 @@ const LinkEditForm: React.FC<LinkEditFormProps> = ({
           <Grid item xs={12}>
             <TextField
               name="name"
+              label="name"
               value={formik.values.name}
               onChange={formik.handleChange}
               error={Boolean(formik.errors.name)}
@@ -87,6 +88,7 @@ const LinkEditForm: React.FC<LinkEditFormProps> = ({
           <Grid item xs={12}>
             <TextField
               name="url"
+              label="url"
               value={formik.values.url}
               onChange={formik.handleChange}
               error={Boolean(formik.errors.url)}

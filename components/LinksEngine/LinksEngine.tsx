@@ -86,7 +86,7 @@ const LinksEngine: React.FC<LinksEngineProps> = ({ links }) => {
                         {...draggable.dragHandleProps}
                         dense
                       >
-                        <ListItemIcon>
+                        <ListItemIcon sx={{ minWidth: 'fit-content', mr: 1 }}>
                           <DragHandleIcon />
                         </ListItemIcon>
                         <LinkEditForm
