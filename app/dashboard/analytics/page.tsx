@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import NextLink from 'next/link';
 
 const DashboardAnalyticsPage = () => (
-  <Container sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+  <Container sx={{ display: 'flex', flexDirection: 'column', gap: 2 }} maxWidth={false}>
     <Breadcrumbs aria-label="breadcrumb">
       <Link underline="hover" color="inherit" href="/dashboard">
         Dashboard
