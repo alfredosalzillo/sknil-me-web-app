@@ -29,6 +29,7 @@ const AuthCallbackPage: React.FC<AuthCallbackPageProps> = ({
       router.replace(next);
     });
   }, [next, router]);
+  return null;
 };
 
 export default AuthCallbackPage;
