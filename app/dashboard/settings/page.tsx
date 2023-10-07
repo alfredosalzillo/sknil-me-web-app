@@ -34,6 +34,20 @@ const DashboardSettingsPage = async () => {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <Typography variant="h6" component="h2" gutterBottom>
+                  Plan
+                </Typography>
+                <Stack spacing={2}>
+                  <Alert severity="info">
+                    You are using the
+                    {' '}
+                    <strong>free</strong>
+                    {' '}
+                    plan.
+                  </Alert>
+                </Stack>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="h6" component="h2" gutterBottom>
                   Profile
                 </Typography>
                 <Stack spacing={2}>
