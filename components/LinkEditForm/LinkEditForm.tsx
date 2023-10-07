@@ -11,8 +11,12 @@ import { useRouter } from 'next/navigation';
 import pushNotification from '@/plugins/notifications/pushNotification';
 import InputAdornment from '@mui/material/InputAdornment';
 import DynamicLinkIcon from '@/components/DynamicLinkIcon';
-import deleteLink from './deleteLink';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import Link from '@mui/material/Link';
 import updateLink from './updateLink';
+import deleteLink from './deleteLink';
 
 const validator = Yup.object({
   name: Yup.string().required(),
@@ -104,8 +108,15 @@ const LinkEditForm: React.FC<LinkEditFormProps> = ({
               }}
             />
           </Grid>
-          <Grid item xs={12} container spacing={1} alignContent="flex-end" justifyContent="flex-end">
-            <Grid item>
+          <Grid item xs={12}>
+            <Stack direction="row" alignContent="flex-end" justifyContent="flex-end">
+              <IconButton
+                size="small"
+                component={Link}
+                href={`/dashboard/analytics?link=${link.id}`}
+              >
+                <AnalyticsIcon fontSize="small" />
+              </IconButton>
               <LoadingButton
                 color="secondary"
                 disabled={formik.isSubmitting}
@@ -118,8 +129,6 @@ const LinkEditForm: React.FC<LinkEditFormProps> = ({
               >
                 Delete
               </LoadingButton>
-            </Grid>
-            <Grid item>
               <LoadingButton
                 type="submit"
                 loading={formik.isSubmitting}
@@ -128,7 +137,7 @@ const LinkEditForm: React.FC<LinkEditFormProps> = ({
               >
                 Save
               </LoadingButton>
-            </Grid>
+            </Stack>
           </Grid>
         </Grid>
         <Grid item>
