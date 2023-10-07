@@ -12,7 +12,8 @@ const DashboardTemplate: React.FC<React.PropsWithChildren> = ({ children }) => (
     <Container
       maxWidth={false}
       sx={{
-        pt: 2,
+        p: 1,
+        pt: 0,
         pb: 4,
       }}
     >

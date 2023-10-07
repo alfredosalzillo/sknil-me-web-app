@@ -38,7 +38,7 @@ const DashboardHomePage = async () => {
   const linksUrl = `${currentDomain()}/l/${username}`;
 
   return (
-    <Container maxWidth={false}>
+    <Container maxWidth={false} disableGutters>
       <Grid container spacing={2}>
         {
           !username && (
