@@ -1,7 +1,6 @@
 'use client';
 
 import InputAdornment from '@mui/material/InputAdornment';
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import React from 'react';
 import * as Yup from 'yup';
@@ -10,6 +9,7 @@ import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
 import currentUserInfo from '@/plugins/api/current-user-info';
 import pushNotification from '@/plugins/notifications/pushNotification';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 const isUnique = async (value?: string): Promise<boolean> => {
   if (!value) {
@@ -52,7 +52,7 @@ const UsernameUpdateForm: React.FC<UsernameUpdateFormProps> = ({
     errors,
     handleChange,
     isSubmitting,
-    isDirty,
+    dirty,
   } = useFormik({
     initialValues: {
       username: initialUsername ?? '',
@@ -93,9 +93,9 @@ const UsernameUpdateForm: React.FC<UsernameUpdateFormProps> = ({
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <Button type="submit" disabled={isSubmitting || !isDirty}>
+              <LoadingButton type="submit" loading={isSubmitting} disabled={!dirty}>
                 Save
-              </Button>
+              </LoadingButton>
             </InputAdornment>
           )
         }}

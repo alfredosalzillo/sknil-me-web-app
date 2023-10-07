@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Switch from '@mui/material/Switch';
 import type { PaperProps } from '@mui/material/Paper';
 import Paper from '@mui/material/Paper';
@@ -104,7 +104,7 @@ const LinkEditForm: React.FC<LinkEditFormProps> = ({
           </Grid>
           <Grid item xs={12} container spacing={1} alignContent="flex-end" justifyContent="flex-end">
             <Grid item>
-              <Button
+              <LoadingButton
                 color="secondary"
                 disabled={formik.isSubmitting}
                 onClick={async () => {
@@ -115,12 +115,17 @@ const LinkEditForm: React.FC<LinkEditFormProps> = ({
                 size="small"
               >
                 Delete
-              </Button>
+              </LoadingButton>
             </Grid>
             <Grid item>
-              <Button type="submit" disabled={formik.isSubmitting || !formik.dirty} size="small">
+              <LoadingButton
+                type="submit"
+                loading={formik.isSubmitting}
+                disabled={!formik.dirty}
+                size="small"
+              >
                 Save
-              </Button>
+              </LoadingButton>
             </Grid>
           </Grid>
         </Grid>

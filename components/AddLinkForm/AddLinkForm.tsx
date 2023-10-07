@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import Button from '@mui/material/Button';
 import React from 'react';
 import pushNotification from '@/plugins/notifications/pushNotification';
+import LoadingButton from '@mui/lab/LoadingButton';
 import addLink from './addLink';
 
 const addLinkValidator = Yup.object({
@@ -57,9 +57,13 @@ const AddLinkForm: React.FC<AddLinkFormProps> = ({
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <Button type="submit" disabled={formik.isSubmitting || !formik.dirty}>
+              <LoadingButton
+                type="submit"
+                loading={formik.isSubmitting}
+                disabled={!formik.dirty}
+              >
                 Add Link
-              </Button>
+              </LoadingButton>
             </InputAdornment>
           )
         }}

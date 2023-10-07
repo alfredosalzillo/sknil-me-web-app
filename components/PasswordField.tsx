@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-export type PasswordFieldProps = Omit<TextFieldProps, 'type' | 'InputProps'>;
+export type PasswordFieldProps = Omit<TextFieldProps, 'type'>;
 
 const PasswordField: React.FC<PasswordFieldProps> = ({ InputProps, ...props }) => {
   const [showPassword, setShowPassword] = useState(false);
