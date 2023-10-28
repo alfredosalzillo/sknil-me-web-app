@@ -2,7 +2,6 @@
 const nextConfig = {
     reactStrictMode: false,
     experimental: {
-        serverActions: true,
         optimizePackageImports: ['@mui/material', '@mui/icons-material'],
     }
 }

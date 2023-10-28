@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import React from 'react';
 import ThemeRegistry from '@/components/ThemeRegistry';
 import './global.css';
@@ -6,8 +6,12 @@ import './global.css';
 export const metadata: Metadata = {
   title: 'Link in bio tool: Everything you are, in one simple link | Sknil-me',
   description: 'Link to everything you create, share and sell online. All from the one bio link.',
-  viewport: 'width=device-width, initial-scale=1.0, user-scalable=yes',
-  favicon: '/favicon.ico',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+  userScalable: true,
 };
 
 // @ts-ignore
