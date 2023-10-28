@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 import NextLink from 'next/link';
 import Box from '@mui/material/Box';
 import LinksView from '@/components/LinksView';
+import Divider from '@mui/material/Divider';
 
 type SectionProps = {
   children: React.ReactNode;
@@ -145,9 +146,94 @@ const Hero = () => (
   </Section>
 );
 
+const Sustainable = () => (
+  <Section>
+    <Grid container spacing={4}>
+      <Grid item xs={12} md={6}>
+        <Stack direction="column" justifyContent="center" height="100%">
+          <Stack direction="row" height="200px" justifyContent="center" alignItems="center" spacing={2}>
+            <Box
+              height="30%"
+              width={20}
+              borderRadius={20}
+              sx={{ background: '#008000' }}
+            />
+            <Box
+              height="60%"
+              width={20}
+              borderRadius={20}
+              sx={{ background: '#008000' }}
+            />
+            <Box
+              height="90%"
+              width={20}
+              borderRadius={20}
+              sx={{ background: '#008000' }}
+            />
+            <Box
+              height="70%"
+              width={20}
+              borderRadius={20}
+              sx={{ background: '#008000' }}
+            />
+            <Box
+              height="80%"
+              width={20}
+              borderRadius={20}
+              sx={{ background: '#008000' }}
+            />
+            <Box
+              height="40%"
+              width={20}
+              borderRadius={20}
+              sx={{ background: '#008000' }}
+            />
+            <Box
+              height="20%"
+              width={20}
+              borderRadius={20}
+              sx={{ background: '#008000' }}
+            />
+          </Stack>
+        </Stack>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <Stack direction="column" justifyContent="center" height="100%" sx={{ p: 2 }}>
+          <Typography variant="h2" fontWeight="bold">
+            The Sustainable Link in Bio Tool
+          </Typography>
+          <Typography variant="body1" sx={{ textWrap: 'balance' }}>
+            Are you a creator looking for a low carbon footprint
+            link in bio tool alternative? Look no further than sknil.me.
+            <br />
+            <br />
+            At sknil.me, we believe that sustainability is essential
+            for the future of the creator economy.
+            That&apos;s why we&apos;re committed to providing creators with
+            a low carbon footprint link in bio tool that they can use to
+            build their brands and connect with their fans.
+            <br />
+            <br />
+            By choosing sknil.me,
+            you can reduce your environmental impact and help create
+            a more sustainable future for the creator economy.
+          </Typography>
+          <Box mt={2}>
+            <Button size="large" variant="outlined" component={NextLink} href="/dashboard">
+              Get Started
+            </Button>
+          </Box>
+        </Stack>
+      </Grid>
+    </Grid>
+  </Section>
+);
+
 const Home = () => (
   <main>
     <Hero />
+    <Divider />
+    <Sustainable />
   </main>
 );
 export default Home;
