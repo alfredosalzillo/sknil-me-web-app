@@ -4,7 +4,7 @@ import ThemeRegistry from '@/components/ThemeRegistry';
 import './global.css';
 
 export const metadata: Metadata = {
-  title: 'Link in bio tool: Everything you are, in one simple link | Sknil-me',
+  title: 'Link in bio tool: Simply You, all in one link | Sknil-me',
   description: 'Link to everything you create, share and sell online. All from the one bio link.',
 };
 
