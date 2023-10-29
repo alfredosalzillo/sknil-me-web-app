@@ -3,6 +3,8 @@ import React from 'react';
 import ThemeRegistry from '@/components/ThemeRegistry';
 import './global.css';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Link in bio tool: Simply You, all in one link | Sknil-me',
   description: 'Link to everything you create, share and sell online. All from the one bio link.',
