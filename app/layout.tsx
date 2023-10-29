@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import React from 'react';
 import ThemeRegistry from '@/components/ThemeRegistry';
+import { Roboto } from 'next/font/google';
+
 import './global.css';
 
 export const dynamic = 'force-dynamic';
@@ -16,6 +18,15 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
+const roboto = Roboto({
+  weight: ['100', '300', '400', '500', '700', '900'],
+  style: ['italic', 'normal'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--roboto-font-family',
+  preload: true,
+});
+
 // @ts-ignore
 const RootLayout = ({
   children,
@@ -26,12 +37,8 @@ const RootLayout = ({
     <head>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
-      />
     </head>
-    <body>
+    <body className={roboto.className}>
       <ThemeRegistry>
         {children}
       </ThemeRegistry>

@@ -15,6 +15,9 @@ const theme = responsiveFontSizes(createTheme({
   palette: {
     mode: 'dark',
   },
+  typography: {
+    fontFamily: 'var(--roboto-font-family)',
+  },
   components: {
     MuiLink: {
       defaultProps: {
